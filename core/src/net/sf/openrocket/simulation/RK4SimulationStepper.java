@@ -649,6 +649,8 @@ public class RK4SimulationStepper extends AbstractSimulationStepper {
 			data.setValue(FlightDataType.TYPE_PRESSURE_DRAG_COEFF, store.forces.getPressureCD());
 			data.setValue(FlightDataType.TYPE_BASE_DRAG_COEFF, store.forces.getBaseCD());
 		}
+
+		data.setValue(FlightDataType.TYPE_THRUST_WEIGHT_RATIO, 69);
 		
 		if (store.flightConditions != null) {
 			data.setValue(FlightDataType.TYPE_REFERENCE_LENGTH, store.flightConditions.getRefLength());
