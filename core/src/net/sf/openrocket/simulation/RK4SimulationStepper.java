@@ -623,6 +623,8 @@ public class RK4SimulationStepper extends AbstractSimulationStepper {
 		}
 		
 		data.setValue(FlightDataType.TYPE_THRUST_FORCE, store.thrustForce);
+		double weight = store.rocketMass.getMass() * store.gravity;
+		data.setValue(FlightDataType.TYPE_THRUST_WEIGHT_RATIO, store.thrustForce / weight);
 		data.setValue(FlightDataType.TYPE_DRAG_FORCE, store.dragForce);
 		data.setValue(FlightDataType.TYPE_GRAVITY, store.gravity);
 		
@@ -649,8 +651,6 @@ public class RK4SimulationStepper extends AbstractSimulationStepper {
 			data.setValue(FlightDataType.TYPE_PRESSURE_DRAG_COEFF, store.forces.getPressureCD());
 			data.setValue(FlightDataType.TYPE_BASE_DRAG_COEFF, store.forces.getBaseCD());
 		}
-
-		data.setValue(FlightDataType.TYPE_THRUST_WEIGHT_RATIO, 69);
 		
 		if (store.flightConditions != null) {
 			data.setValue(FlightDataType.TYPE_REFERENCE_LENGTH, store.flightConditions.getRefLength());
